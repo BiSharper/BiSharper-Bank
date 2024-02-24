@@ -32,7 +32,7 @@ trait PboReadExt: Read + Sized {
                 self.read_i32::<LittleEndian>()?,
                 self.read_i32::<LittleEndian>()?,
                 self.read_i32::<LittleEndian>()?,
-            )?
+            )
          ))
     }
 }

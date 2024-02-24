@@ -17,7 +17,8 @@ pub struct BankReadOptions {
     pub allow_post_mature_version: bool,
     pub valid_entry_threshold:     i32, //yes. i32
     pub trim_unused_configs:       bool,
-    pub respect_signedness_bug:    bool
+    pub respect_signedness_bug:    bool,
+    pub respect_long_name_bug:     bool
 }
 
 #[derive(Clone, Copy, Default, Debug, PartialEq, Eq)]
@@ -38,6 +39,7 @@ impl BankReadOptions {
             valid_entry_threshold: 0,
             trim_unused_configs: false,
             respect_signedness_bug: false,
+            respect_long_name_bug: false,
         }
     }
 
@@ -50,6 +52,7 @@ impl BankReadOptions {
             valid_entry_threshold: 0,
             trim_unused_configs: false,
             respect_signedness_bug: false,
+            respect_long_name_bug: false,
         }
     }
 
@@ -62,6 +65,7 @@ impl BankReadOptions {
             valid_entry_threshold: 1,
             trim_unused_configs: true,
             respect_signedness_bug: true,
+            respect_long_name_bug: true,
         }
     }
 }

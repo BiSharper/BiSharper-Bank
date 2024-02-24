@@ -1,3 +1,25 @@
+use bisharper_filesystem::macros::GfsMeta;
+
+#[derive(GfsMeta, Copy, Clone, Default)]
+pub struct BankFileMeta {
+    mime:           BankMime,
+    content_length: i32,
+    buffer_offset:  u64,
+    timestamp:      i32,
+    buffer_length:  i32
+}
+
+impl BankFileMeta {
+    pub fn create(mime: BankMime, content_length: i32, buffer_offset: i32, timestamp: i32, buffer_length: i32) -> Self {
+        BankFileMeta {
+            mime,
+            content_length ,
+            buffer_offset: buffer_offset as u64,
+            timestamp,
+            buffer_length,
+        }
+    }
+}
 
 #[derive(Clone, Copy, Default, Debug, PartialEq, Eq)]
 pub enum BankMime {

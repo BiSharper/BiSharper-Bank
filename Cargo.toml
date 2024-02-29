@@ -6,7 +6,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bisharper-common = { path = "../../core/bisharper-common"}
-bisharper-filesystem = { path = "../../core/bisharper-filesystem"}
+rfsa = { path = "../../external/rfsa"}
 thiserror = "1.0.57"
 byteorder = "1.5.0"
+bisharper-common = { path = "../../core/bisharper-common"}
+bisharper-gfs = { path = "../../core/bisharper-gfs", optional = true}
+
+[features]
+gfs-iterop = ["bisharper-gfs"]

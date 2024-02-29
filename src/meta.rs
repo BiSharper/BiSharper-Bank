@@ -1,22 +1,22 @@
-use bisharper_filesystem::macros::GfsMeta;
+use rfsa::macros::VMeta;
 
-#[derive(GfsMeta, Copy, Clone, Default)]
+#[derive(VMeta, Copy, Clone, Default, Eq, PartialEq)]
 pub struct BankFileMeta {
-    mime:           BankMime,
-    content_length: i32,
-    buffer_offset:  u64,
-    timestamp:      i32,
-    buffer_length:  i32
+    pub fully_loaded:   bool,
+    pub mime:           BankMime,
+    pub content_length: u32,
+    pub buffer_offset:  u64,
+    pub timestamp:      u32,
+    pub buffer_length:  u32
 }
 
+
 impl BankFileMeta {
-    pub fn create(mime: BankMime, content_length: i32, buffer_offset: i32, timestamp: i32, buffer_length: i32) -> Self {
+    pub fn create(fully_loaded: bool, mime: BankMime, content_length: u32, buffer_offset: u32, timestamp: u32, buffer_length: u32) -> Self {
         BankFileMeta {
-            mime,
-            content_length ,
+            fully_loaded, mime, content_length,
             buffer_offset: buffer_offset as u64,
-            timestamp,
-            buffer_length,
+            timestamp, buffer_length,
         }
     }
 }

@@ -11,6 +11,12 @@ pub enum BankError {
     IoError(#[from] io::Error),
     #[error("String formatting error.")]
     Utf8Error(#[from] string::FromUtf8Error),
+    #[error("Encountered post mature version entry!")]
+    PostMatureVersion,
+    #[error("Encountered weird data offset")]
+    InvalidDataOffset,
+    #[error("Missing version entry!")]
+    MissingVersionEntry,
     #[error("Missing {0} terminator!")]
     MissingNullTerminator(MissingTerminatorType),
 }
